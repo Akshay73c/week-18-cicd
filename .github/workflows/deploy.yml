@@ -37,4 +37,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             sudo docker pull 15akshay/week-18-cd:latest
+            sudo docker stop web-app || true
+            sudo docker rm web-app || true
             sudo docker run -d --name web-app -p 3005:3000 --restart=always 15akshay/week-18-cd:latest
